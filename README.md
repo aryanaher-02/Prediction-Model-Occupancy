@@ -1,7 +1,6 @@
 # Room Occupancy Prediction using Machine Learning
-A machine learning project to predict room occupancy based on real-time environmental sensor data. This model can be used to build smart, energy-efficient systems for homes and offices.
 
-![Correlation Heatmap](https://i.imgur.com/H5gCg7J.jpeg)
+A machine learning project to predict room occupancy based on real-time environmental sensor data. This model can be used to build smart, energy-efficient systems for homes and offices.
 
 ---
 
@@ -18,7 +17,7 @@ This repository contains the Jupyter notebooks, datasets, and analysis required 
 * **High-Accuracy Prediction:** Achieves 98.6% accuracy in classifying room occupancy.
 * **Comprehensive EDA:** Includes detailed Exploratory Data Analysis with visualizations to understand data trends.
 * **Model Comparison:** Implements and evaluates six different classification algorithms to find the optimal solution.
-* **Clear Visualizations:** Uses plots like time-series and heatmaps to present findings effectively.
+* **Reproducible Workflow:** Contains all necessary code and data for others to run the analysis.
 
 ---
 
@@ -30,6 +29,7 @@ The project utilizes two primary datasets:
 2.  `for_correlation.csv`: A supplementary dataset used for deeper exploratory analysis, which also includes a `Lux` (light level) feature.
 
 The key features used for prediction are:
+
 * `Temperature` (°C)
 * `Humidity` (%)
 * `CO2` (ppm)
@@ -43,7 +43,7 @@ The project followed a standard machine learning workflow:
 
 1.  **Data Preprocessing:** The raw data was loaded, cleaned of any irrelevant information, and prepared for analysis. A key step involved creating a unified `exact_time` column from separate date and time fields for accurate time-series analysis.
 
-2.  **Exploratory Data Analysis (EDA):** A deep dive into the dataset was performed to uncover patterns. This included analyzing statistical properties and creating visualizations to see how sensor readings changed over time and how they correlated with occupancy.
+2.  **Exploratory Data Analysis (EDA):** A deep dive into the dataset was performed to uncover patterns. Visual analysis was crucial here. Time-series plots showed clear shifts in sensor readings that corresponded with changes in occupancy status. Furthermore, a correlation heatmap revealed the strong relationships between variables, particularly how CO2 levels rise significantly with human presence. This analysis confirmed that the chosen features were highly relevant for prediction.
 
 3.  **Model Training & Evaluation:** The problem was treated as a binary classification task. Six different models were trained and then evaluated based on their accuracy on a held-out test set.
 
@@ -66,25 +66,9 @@ The results show that the environmental features are highly predictive of room o
 
 ---
 
-## Visualizations
-
-#### Feature Distribution by Occupancy
-
-These plots show the clear difference in the average sensor readings when the room is occupied versus when it is empty.
-
-![Feature Averages](https://i.imgur.com/u5jZqjC.png)
-
-#### Time-Series Data
-
-This plot shows the CO2 levels over a period, with the red line indicating the occupancy status.
-
-![CO2 over Time](https://i.imgur.com/Yq2l5Qf.png)
-
----
-
 ## How to Run This Project
 
-To run this project on your local machine, follow these steps:
+To run this project on a local machine, follow these steps:
 
 1.  **Clone the repository:**
     ```bash
@@ -103,13 +87,3 @@ To run this project on your local machine, follow these steps:
     ```
 
 4.  Open the `code_occupancy_iit_kgp-updated.ipynb` file to see the main analysis and model training.
-
----
-
-## Future Work
-
-Potential areas for improvement and further research:
-
-* **Hyperparameter Tuning:** Use `GridSearchCV` or `RandomizedSearchCV` to fine-tune the Random Forest model for potentially even higher accuracy.
-* **Advanced Evaluation Metrics:** Analyze the confusion matrix, precision, recall, and F1-score to get a more nuanced view of the model's performance.
-* **Real-time Deployment:** Deploy the trained model as a web service or API that could be integrated into a smart home system.
